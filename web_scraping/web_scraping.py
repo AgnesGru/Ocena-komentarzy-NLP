@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
-pages = range(1, 4)
+pages = range(1, 25)
 
 for page in pages:
     url = 'https://pl.trustpilot.com/review/www.allegro.pl?page={}'
@@ -24,10 +24,12 @@ for page in pages:
             article.find('div', class_="review-content__body")
             continue
 
-        csv_file = open('allegro_scraped.csv', 'a')
-        csv_writer = csv.writer(csv_file)
-        # # csv_writer.writerow(['Sentiment', 'Opinion'])
 
-        print(sentiment, opinion)
-        csv_writer.writerow([sentiment, opinion])
-        csv_file.close()
+        with open('allegro_scraped.csv', 'a', newline = '',encoding="utf-8") as csv_file:
+            # csv_file = open('allegro_scraped.csv', 'a', newline = '')
+            csv_writer = csv.writer(csv_file)
+            # # csv_writer.writerow(['Sentiment', 'Opinion'])
+
+            print(sentiment, opinion)
+            csv_writer.writerow([sentiment, opinion])
+
