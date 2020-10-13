@@ -1,27 +1,33 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
 
-pages = range(1, 23)
+pages = range(1, 4)
 
 for page in pages:
-    source = requests.get('https://pl.trustpilot.com/review/www.allegro.pl?page={}'.format(page)).text
+    url = 'https://pl.trustpilot.com/review/www.allegro.pl?page={}'
+    source = requests.get(url.format(page)).text
     soup = BeautifulSoup(source, 'lxml')
-    # print(soup.prettify())
 
     for article in soup.find_all('article'):
         star = article.section.div.div.div.div.img
         sentiment = star.get('alt', '')[0]
-        print(sentiment)
+        # print(sentiment.strip())
 
         # """pierwszy sposób wywala się gdy jest odpowiedź z allegro"""
         # opinion = article.section.div.find('div').find_next_sibling().p.text
         # print(opinion )
-
         """drugi sposób"""
         try:
-            opinion = article.find('div', class_="review-content__body").find('p', class_="review-content__text").text
-
+            opinion = article.find('div', class_="review-content__body").find('p', class_="review-content__text").text.strip()
         except AttributeError as e:
-            opinin = None
+            article.find('div', class_="review-content__body")
+            continue
 
-        print(opinion)
+        csv_file = open('allegro_scraped.csv', 'a')
+        csv_writer = csv.writer(csv_file)
+        # # csv_writer.writerow(['Sentiment', 'Opinion'])
+
+        print(sentiment, opinion)
+        csv_writer.writerow([sentiment, opinion])
+        csv_file.close()
