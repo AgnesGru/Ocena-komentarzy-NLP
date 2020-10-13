@@ -26,8 +26,10 @@ for page in pages:
 
 
         with open('allegro_scraped.csv', 'w', newline = '') as csv_file:
-            # csv_file = open('allegro_scraped.csv', 'a', newline = '')
-            csv_writer = csv.writer(csv_file)
+            try:
+                csv_writer = csv.writer(csv_file)
+            except UnicodeEncodeError as e:
+                continue
             # # csv_writer.writerow(['Sentiment', 'Opinion'])
 
             print(sentiment, opinion)
