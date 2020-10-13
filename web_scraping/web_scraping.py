@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
-pages = range(1, 25)
+pages = range(1, 2)
 
 for page in pages:
     url = 'https://pl.trustpilot.com/review/www.allegro.pl?page={}'
@@ -19,13 +19,13 @@ for page in pages:
         # print(opinion )
         """drugi sposób"""
         try:
-            opinion = article.find('div', class_="review-content__body").find('p', class_="review-content__text").text.strip()
+            opinion = article.find('div', class_="review-content__body").find('p', class_="review-content__text").text.strip().strip()
         except AttributeError as e:
             article.find('div', class_="review-content__body")
             continue
 
 
-        with open('allegro_scraped.csv', 'a', newline = '',encoding="utf-8") as csv_file:
+        with open('allegro_scraped.csv', 'w', newline = '') as csv_file:
             # csv_file = open('allegro_scraped.csv', 'a', newline = '')
             csv_writer = csv.writer(csv_file)
             # # csv_writer.writerow(['Sentiment', 'Opinion'])
