@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-pages = range(49, 50)
+pages = range(1, 40)
 for page in pages:
     url = 'https://www.ceneo.pl/sklepy/mediamarkt.pl-s12627/opinie-{}'
     r = requests.get(url.format(page)) # Response object called r.
@@ -24,7 +24,7 @@ for page in pages:
         for opinion in opinions:
             opinion = str(opinion).replace('\n', ' ').strip()
         try:
-            with open('media_scraped.csv', 'a',  newline = '') as csv_file:
+            with open('allegro_scraped.csv', 'a',  newline = '') as csv_file:
                 csv_writer = csv.writer(csv_file)
                 print(recomendation, opinion)
                 csv_writer.writerow([recomendation, opinion])
