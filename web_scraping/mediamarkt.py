@@ -2,11 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-<<<<<<< HEAD
-pages = range(1, 40)
-=======
 pages = range(1,24)
->>>>>>> develope
 for page in pages:
     url = 'https://www.ceneo.pl/sklepy/mediamarkt.pl-s12627/opinie-{}'
     r = requests.get(url.format(page)) # Response object called r.
@@ -27,11 +23,15 @@ for page in pages:
         opinions = elem.find('div', {'class':'user-post__text'})
         for opinion in opinions:
             opinion = str(opinion).replace('\n', ' ').strip()
-        try:
-            with open('allegro_scraped.csv', 'a',  newline = '') as csv_file:
-                csv_writer = csv.writer(csv_file)
-                print(recomendation, opinion)
-                csv_writer.writerow([recomendation, opinion])
-
-        except UnicodeEncodeError as e:
-            continue
+        # try:
+        #     with open('allegro_scraped1.csv', 'a',  newline = '', encoding="utf-8") as csv_file:
+        #         csv_writer = csv.writer(csv_file)
+        #         print(recomendation, opinion)
+        #         csv_writer.writerow([recomendation, opinion])
+        #
+        # except UnicodeEncodeError as e:
+        #     continue
+        with open('allegro_scraped1.csv', 'a', newline='', encoding="utf-8") as csv_file:
+            csv_writer = csv.writer(csv_file)
+            print(recomendation, opinion)
+            csv_writer.writerow([recomendation, opinion])
