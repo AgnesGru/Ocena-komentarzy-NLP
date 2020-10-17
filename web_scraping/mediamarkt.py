@@ -2,7 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
+<<<<<<< HEAD
 pages = range(1, 40)
+=======
+pages = range(1,24)
+>>>>>>> develope
 for page in pages:
     url = 'https://www.ceneo.pl/sklepy/mediamarkt.pl-s12627/opinie-{}'
     r = requests.get(url.format(page)) # Response object called r.
@@ -14,10 +18,10 @@ for page in pages:
             continue
         else:
             recomendation
-            if recomendation == 'poleceam':
-                recomendation.string.replace_with('1')
+            if recomendation.string == 'polecam':  # tu musi być string
+                recomendation.string.replace_with('5')
             else:
-                recomendation.string.replace_with('0')
+                recomendation.string.replace_with('1')
         recomendation = recomendation.text.strip()
 
         opinions = elem.find('div', {'class':'user-post__text'})
