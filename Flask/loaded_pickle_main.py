@@ -1,12 +1,15 @@
 # from model_testing_comments_from_internet import  vectorizer
 import pickle
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 # from sklearn.feature_extraction.text import CountVectorizer
 
 # load model
-with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_sentiment_classifier.pkl', 'rb') as f:
+with open(os.path.join(dir_path, 'pickeld_sentiment_classifier.pkl'), 'rb') as f:
     loaded_mnb = pickle.load(f)
 
-with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_vectorizer.pkl', 'rb') as f:
+with open(os.path.join(dir_path, 'pickeld_vectorizer.pkl'), 'rb') as f:
     loaded_vectorizer = pickle.load(f)
 
 # test_opinion = list(x_test)[0]
