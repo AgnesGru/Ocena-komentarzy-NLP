@@ -11,11 +11,15 @@ from loaded_pickle_main import get_string, change_into_string
 
 @app.route('/', methods = ['POST', 'GET'])
 def send_sentiment():
-    writen_opinion = request.args.get('opinion')  # opinia wysłana
-    sent = get_string(writen_opinion)  # use function
-    result = change_into_string(sent)
-    # return str(result)
-    return render_template("base.html")
+#     writen_opinion = request.args.get('opinion')  # opinia wysłana
+    if request.method == 'POST':
+        writen_opinion = request.form['wpisz_opinie']
+        sent = get_string(writen_opinion)  # use function
+        result = change_into_string(sent)
+        return str(result)
+#         return render_template("base.html")
+    else:
+        return render_template("base.html")
 
 # @app.route('/', methods = ['POST', 'GET'])
 # def send_sentiment():
@@ -25,7 +29,7 @@ def send_sentiment():
 #         sent = get_string(writen_opinion)  # use function
 #         result = change_into_string(sent)
 #         data = {'opinion':f'{writen_opinion}', 'result':f'{result}', 'result_int': int(sent)}
-#         print(data)
+#         # print(data)
 #         return jsonify(data) #str(result)
 #     else:
 #         return render_template("base.html")
