@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-pages = range(1,24)
+pages = range(1,50)
 for page in pages:
     url = 'https://www.ceneo.pl/sklepy/mediamarkt.pl-s12627/opinie-{}'
     r = requests.get(url.format(page)) # Response object called r.

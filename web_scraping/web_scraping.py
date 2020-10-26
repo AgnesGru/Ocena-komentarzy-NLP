@@ -12,7 +12,7 @@ for page in pages:
     for article in soup.find_all('article'):
         star = article.section.div.div.div.div.img
         sentiment = star.get('alt', '')[0]
-        # print(sentiment.strip())
+        sentiment.strip()
 
         # """pierwszy sposób wywala się gdy jest odpowiedź z allegro"""
         # opinion = article.section.div.find('div').find_next_sibling().p.text
