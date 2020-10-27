@@ -1,32 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang = 'pl'>
 <head>
-    <meta charset = 'utf-8'/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>Wpisz opinię</title>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-
+    <link href="assets/img/bg-signup.jpg" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+<!--    <link href="styles.css" rel="stylesheet"/>-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}"/>
 </head>
-<body>
-<div id="container">
-    <div id="content">
-        <h1>Magiczne opinie oparte na Sztucznej Inteligencji!</h1>
-        <br/>
-        <form method = "post", action = "#">
-            <p>Wpisz twoją opinię! <input type='text' name="wpisz_opinie" placeholder="Wpisz ..."/></p>
-            <br/>
-            <p><input type='submit' value = 'Sprawdź'/></p>
-        </form>
-    </div>
-    <div id="footer">
-        Specjalne Podziękowania dla: Lukasz Przybylski &copy
-
-    </div>
-
-
-
-
-
-</div>
+<body id="page-top">
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0">Magiczne opinie oparte na Sztucznej Inteligencji!</h1>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="text-white-50">
+                        <br/>
+                        {% block content %}{% endblock %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50"><div class="container">Ta strona została stworzona przez Dr G 2020. Specjalne Podziękowania dla: Lukasz Przybylski</div></footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
 </html>
 

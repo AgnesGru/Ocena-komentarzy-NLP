@@ -1,6 +1,7 @@
-from flask import Flask, request, current_app, render_template, jsonify
-app = Flask(__name__)  #nowa instancja klasy Flask
+from flask import Flask, request, current_app, render_template, jsonify, redirect, url_for
 from loaded_pickle_main import get_string, change_into_string
+
+app = Flask(__name__)  #nowa instancja klasy Flask
 
 @app.route('/', methods = ['POST', 'GET'])
 def send_sentiment():
@@ -9,10 +10,10 @@ def send_sentiment():
         writen_opinion = request.form['wpisz_opinie']
         sent = get_string(writen_opinion)  # use function
         result = change_into_string(sent)
-        return str(result)
-#         return render_template("base.html")
+        # return redirect(request.url)  # redirects to the same page
+        return render_template("answer.html", result=result) # return str(result)
     else:
-        return render_template("base.html")
+        return render_template("templates.html")
 
 # @app.route('/', methods = ['POST', 'GET'])
 # def send_sentiment():

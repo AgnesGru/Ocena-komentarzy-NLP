@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method = "post", action = "{{url_for('send_sentiment')}}">
+        <p>Wpisz twoją opinię! <input type='text' name="wpisz_opinie" placeholder="Wpisz ..."/></p>
+        <br/>
+        <p><input type='submit' value = 'Sprawdź'/></p>
+    </form>
+{% endblock content %}
