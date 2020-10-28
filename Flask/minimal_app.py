@@ -26,7 +26,7 @@ def send_sentiment():
 #         # print(data)
 #         return jsonify(data) #str(result)
 #     else:
-#         return render_template("base.html")
+#         return render_template("index.html")
 
 
 if __name__ == "__main__":

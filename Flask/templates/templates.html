@@ -1,8 +1,17 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 {% block content %}
     <form method = "post", action = "{{url_for('send_sentiment')}}">
         <p>Wpisz twoją opinię! <input type='text' name="wpisz_opinie" placeholder="Wpisz ..."/></p>
         <br/>
         <p><input type='submit' value = 'Sprawdź'/></p>
+        <br/>
+        <br/>
     </form>
+<!-- Footer-->
+    <footer>
+		<div class='footer_container'>Ta strona została stworzona przez Dr G 2020
+			<br/>
+			Specjalne Podziękowania dla: Łukasz Przybylski
+		</div>
+	</footer>
 {% endblock content %}
