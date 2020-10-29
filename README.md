@@ -30,8 +30,7 @@ Project is created with:
 To run this project go to:
 
 $ AgnesGru.pythonanywhere.com
-$ 
-$ 
+$ https://github.com/AgnesGru/Ocena-komentarzy-NLP/blob/main/Flask/minimal_app.py
 
 ## Sources
 This app is inspired by Keith Galli project „sklearn”
