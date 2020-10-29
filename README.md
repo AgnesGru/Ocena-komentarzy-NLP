@@ -3,7 +3,7 @@ Comments evaluation using NLP
 
 
 ## Table of contents
-* [Introductiono](#introduction)
+* [Introduction](#introduction)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Sources](#sources)
@@ -27,11 +27,11 @@ Project is created with:
 * lxml: 4.5.2
 	
 ## Setup
-To run this project:
+To run this project go to:
 
-$ cd ../lorem
-$ npm install
-$ npm start
+$ AgnesGru.pythonanywhere.com
+$ 
+$ 
 
 ## Sources
 This app is inspired by Keith Galli project „sklearn”
