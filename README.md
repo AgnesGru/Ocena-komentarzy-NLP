@@ -29,7 +29,7 @@ Project is created with:
 ## Setup
 To run this project go to:
 
-* AgnesGru.pythonanywhere.com
+* AgnesGru.pythonanywhere.com 
 * https://github.com/AgnesGru/Ocena-komentarzy-NLP/blob/main/Flask/minimal_app.py
 
 ## Sources
