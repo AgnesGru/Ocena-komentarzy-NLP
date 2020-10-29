@@ -1,2 +1,4 @@
-# Ocena-komentarzy-NLP
-Projekt końcowy
+# NLP
+Comments evaluation using NLP
+
+##Table of contents
