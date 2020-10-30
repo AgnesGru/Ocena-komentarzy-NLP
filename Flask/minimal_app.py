@@ -6,12 +6,17 @@ app = Flask(__name__)  #nowa instancja klasy Flask
 @app.route('/', methods = ['POST', 'GET'])
 def send_sentiment():
 #     writen_opinion = request.args.get('opinion')  # opinia wysłana
-    if request.method == 'POST':
-        writen_opinion = request.form['wpisz_opinie']
+    if request.method == 'POST':  # You need to write an if statement to check if the form was submitted or if the page is being loaded the first time.
+        writen_opinion = request.form['wpisz_opinię'] # to jest name z templates html
         sent = get_string(writen_opinion)  # use function
         result = change_into_string(sent)
         # return redirect(request.url)  # redirects to the same page
         return render_template("answer.html", result=result) # return str(result)
+        if "zagraj_jeszcze_raz" in request.form:
+            return render_template("templates.html")
+        else:
+            pass
+
     else:
         return render_template("templates.html")
 
