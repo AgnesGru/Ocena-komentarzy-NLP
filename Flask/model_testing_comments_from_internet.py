@@ -13,25 +13,15 @@ from sklearn.naive_bayes import MultinomialNB
 data = pd.read_csv(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP/web_scraping/allegro_scraped1.csv', sep=',', names = ['Sentiment', 'Opinion'],  encoding= 'utf-8')
 df = pd.DataFrame(data)
 
-
-# shows top 10 rows
-# df.head(10)
-
-
 # ### How many cells with positive sentiment?
-
 # print(len(df[df.Sentiment == 1]))
 # print(len(df[df.Sentiment == 5]))
-
 
 df.loc[df['Sentiment'] == 1, 'Sentiment']=0
 df.loc[df['Sentiment'] == 5, 'Sentiment']=1
 
-# df.head()
-
 df_x =df['Opinion']
 df_y = df['Sentiment']
-
 
 vectorizer = CountVectorizer()
 
@@ -71,9 +61,9 @@ for i in range(len(pred)):
 # test_set = ['zdecydowanie nie polecam tego gównianego sklepu']
 # new_test = vectorizer.transform(test_set)
 # mnb.predict(new_test) # model przewiduje, czy wpisane zdanie jest positive=1, czy negative=0
-
-with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_sentiment_classifier.pkl', 'wb') as f:
-    pickle.dump(mnb , f)
-
-with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_vectorizer.pkl', 'wb') as f:
-    pickle.dump(vectorizer , f)
+#
+# with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_sentiment_classifier.pkl', 'wb') as f:
+#     pickle.dump(mnb , f)
+#
+# with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_vectorizer.pkl', 'wb') as f:
+#     pickle.dump(vectorizer , f)
