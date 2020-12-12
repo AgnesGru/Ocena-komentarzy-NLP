@@ -1,7 +1,7 @@
 import pickle
 import os
 
-dir_path = os.path.dirname(os.path.realpath(__file__)) # to get full path of script location (not working directory)
+dir_path = os.path.dirname(os.path.realpath(__file__))  # to get full path of script location (not working directory)
 
 # load model
 with open(os.path.join(dir_path, 'pickeld_sentiment_classifier.pkl'), 'rb') as f:
@@ -9,6 +9,7 @@ with open(os.path.join(dir_path, 'pickeld_sentiment_classifier.pkl'), 'rb') as f
 
 with open(os.path.join(dir_path, 'pickeld_vectorizer.pkl'), 'rb') as f:
     loaded_vectorizer = pickle.load(f)
+
 
 def get_string(opinion):
     opinion = [opinion]
@@ -21,4 +22,3 @@ def change_into_string(int_sentiment):
         return "Twoja opinia jest pozytywna"
     else:
         return "Twoja opinia jest negatywna"
-
