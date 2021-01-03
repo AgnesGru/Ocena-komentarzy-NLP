@@ -10,22 +10,24 @@ from sklearn.naive_bayes import MultinomialNB
 
 # raise ValueError('błąd')
 
-data = pd.read_csv(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP/web_scraping/allegro_scraped1.csv', sep=',', names = ['Sentiment', 'Opinion'],  encoding= 'utf-8')
+data = pd.read_csv(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP/web_scraping/allegro_scraped1.csv', sep=',',
+                   names=['Sentiment', 'Opinion'], encoding='utf-8')
 df = pd.DataFrame(data)
 
 # ### How many cells with positive sentiment?
 # print(len(df[df.Sentiment == 1]))
 # print(len(df[df.Sentiment == 5]))
 
-df.loc[df['Sentiment'] == 1, 'Sentiment']=0
-df.loc[df['Sentiment'] == 5, 'Sentiment']=1
+df.loc[df['Sentiment'] == 1, 'Sentiment'] = 0
+df.loc[df['Sentiment'] == 5, 'Sentiment'] = 1
 
-df_x =df['Opinion']
+df_x = df['Opinion']
 df_y = df['Sentiment']
 
 vectorizer = CountVectorizer()
 
-x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size = 0.25, random_state = 4)  # tu sobie pozmieniaj na 0.33 i ziarno też zmień
+x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size=0.25,
+                                                    random_state=4)  # tu sobie pozmieniaj na 0.33 i ziarno też zmień
 
 x_train_countvectorizer = vectorizer.fit_transform(x_train)
 
@@ -48,7 +50,7 @@ count = 0
 
 for i in range(len(pred)):
     if pred[i] == rezult[i]:
-        count += 1    
+        count += 1
 
 print(count)
 print(len(pred))
