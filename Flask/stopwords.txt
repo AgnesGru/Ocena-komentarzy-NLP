@@ -9,11 +9,8 @@ ale
 allegro
 alez
 ależ
-ani
 az
 aż
-bardziej
-bardzo
 beda
 bedzie
 bez
@@ -60,7 +57,6 @@ dla
 dlaczego
 dlatego
 do
-dobrze
 dokad
 dokąd
 dosc
@@ -206,12 +202,10 @@ nia
 nią
 nic
 nich
-nie
 niech
 niego
 niej
 niemu
-nigdy
 nim
 nimi
 niz
@@ -269,7 +263,6 @@ sposob
 sposób
 swoje
 ta
-tak
 taka
 taki
 takie
