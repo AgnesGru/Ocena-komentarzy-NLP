@@ -50,20 +50,20 @@ for i in range(len(pred)):
     if pred[i] == rezult[i]:
         count += 1    
 
-# print(count)
-# print(len(pred))
+print(count)
+print(len(pred))
 
-# accuracy = count/len(pred)
-# print(accuracy)
+accuracy = count/len(pred)
+print(accuracy)
 
 # ### The evaluation of coments typed by the user.
 
 # test_set = ['zdecydowanie nie polecam tego gównianego sklepu']
 # new_test = vectorizer.transform(test_set)
 # mnb.predict(new_test) # model przewiduje, czy wpisane zdanie jest positive=1, czy negative=0
-#
-# with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_sentiment_classifier.pkl', 'wb') as f:
-#     pickle.dump(mnb , f)
-#
-# with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_vectorizer.pkl', 'wb') as f:
-#     pickle.dump(vectorizer , f)
+
+with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_sentiment_classifier.pkl', 'wb') as f:
+    pickle.dump(mnb , f)
+
+with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_vectorizer.pkl', 'wb') as f:
+    pickle.dump(vectorizer , f)

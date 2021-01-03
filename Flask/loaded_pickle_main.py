@@ -7,7 +7,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__)) # to get full path of scr
 with open(os.path.join(dir_path, 'pickeld_sentiment_classifier.pkl'), 'rb') as f:
     loaded_mnb = pickle.load(f)
 
-with open(os.path.join(dir_path, 'pickeld_vectorizer.pkl'), 'rb') as f:
+with open(os.path.join(dir_path, 'cv.pkl'), 'rb') as f:
     loaded_vectorizer = pickle.load(f)
 
 def get_string(opinion):
