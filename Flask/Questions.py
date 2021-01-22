@@ -1,17 +1,15 @@
 """ Celem tego ćwiczenia jest odpowiedzenie na kilka pytań dotyczących informacji zawartych w bazie danych.
  Pytanie 1 Które opinie są średnio dłuższe, pozytywne czy negatywne?
- Pytanie 2 W których opiniach jest więcej przekleństw, w pozytywnych czy w negatywnych?
- Pytanie 3 Ile razy wystąpiła fraza Polecam a ile Nie polecam (ignoruj wielkie litery) """
+ Pytanie 2 W których opiniach jest więcej przekleństw, w pozytywnych czy w negatywnych? Wiadomo:-)
+ Pytanie 3 Ile razy wystąpiła fraza Polecam a ile Nie polecam """
 import sqlite3
 import numpy as np
 from nltk.tokenize import word_tokenize
 from sqlalchemy.orm import sessionmaker
 
-# Session = sessionmaker(bind=engine)
-# session1 = Session()
-
 connection = sqlite3.connect("sqlalchemy.db")
 cursor = connection.cursor()
+
 # # Ad Pytanie 1
 # select_query1 = "SELECT * FROM MyTable where Sentiment = 1;"
 # result_neg = cursor.execute(select_query1)
@@ -177,8 +175,15 @@ cursor = connection.cursor()
 
 # # Ad Pytanie 3
 
+# select_query = "SELECT MyTable.Opinion FROM MyTable where Sentiment = 1 and Opinion like '%nie polecam%';"
+# result = cursor.execute(select_query)
+# print(len([''.join(i) for i in list(result)]))
 
-# print(result.fetchall())
+select_query = "SELECT MyTable.Opinion FROM MyTable where Sentiment = 5 and Opinion like '%polecam%' and Opinion not like '%nie polecam%';"
+result = cursor.execute(select_query)
+# print([''.join(i) for i in list(result)])
+print(len([''.join(i) for i in list(result)]))
+
 
 cursor.close()
 connection.close()
