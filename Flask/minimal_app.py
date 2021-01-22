@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def send_sentiment():  # view
-    #     writen_opinion = request.args.get('opinion')  # opinia wysłana
     if request.method == 'POST':  # You need to write an if statement to check if the form was submitted or if the page is being loaded the first time.
         writen_opinion = request.form['wpisz_opinię']
         sent = get_string(writen_opinion)  # use function
