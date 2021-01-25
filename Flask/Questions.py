@@ -27,7 +27,7 @@ cursor = connection.cursor()
 #
 # print(sum([len(i[1]) for i in lista_positive])/len(lista_positive)) # 52.48 Tyle jest średnio znaków w pozytywnych opiniach
 
-# # Ad Pytanie 2
+# Ad Pytanie 2
 
 # bad_words = ['chuj','chuja', 'chujek', 'chuju', 'chujem', 'chujnia',
 # 'chujowy', 'chujowa', 'chujowe', 'cipa', 'cipę', 'cipe', 'cipą',
@@ -178,12 +178,11 @@ cursor = connection.cursor()
 # select_query = "SELECT MyTable.Opinion FROM MyTable where Sentiment = 1 and Opinion like '%nie polecam%';"
 # result = cursor.execute(select_query)
 # print(len([''.join(i) for i in list(result)]))
-
-select_query = "SELECT MyTable.Opinion FROM MyTable where Sentiment = 5 and Opinion like '%polecam%' and Opinion not like '%nie polecam%';"
-result = cursor.execute(select_query)
-# print([''.join(i) for i in list(result)])
-print(len([''.join(i) for i in list(result)]))
-
-
-cursor.close()
-connection.close()
+#
+# select_query = "SELECT MyTable.Opinion FROM MyTable where Sentiment = 5 and Opinion like '%polecam%'" \
+#                " and Opinion not like '%nie polecam%';"
+# result = cursor.execute(select_query)
+# print(len([''.join(i) for i in list(result)]))
+#
+# cursor.close()
+# connection.close()

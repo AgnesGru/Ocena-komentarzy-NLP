@@ -14,34 +14,17 @@ for page in pages:
         sentiment = star.get('alt', '')[0]
         sentiment.strip()
 
-        # """pierwszy sposób wywala się gdy jest odpowiedź z allegro"""
-        # opinion = article.section.div.find('div').find_next_sibling().p.text
-        # print(opinion )
-        """drugi sposób"""
         try:
             opinion = article.find('div', class_="review-content__body").find('p', class_="review-content__text").text.strip()
         except AttributeError as e:
             article.find('div', class_="review-content__body")
             continue
 
-        # try:
-        #     with open('allegro_scraped1.csv', 'a', newline = '', encoding="utf-8") as csv_file:
-        #         try:
-        #             csv_writer = csv.writer(csv_file)
-        #         except UnicodeEncodeError as e:
-        #             continue
-        #         # # csv_writer.writerow(['Sentiment', 'Opinion'])
-        #
-        #         print(sentiment, opinion)
-        #         csv_writer.writerow([sentiment, opinion])
-        # except UnicodeEncodeError as e:
-        #     continue
         with open('allegro_scraped1.csv', 'a', newline='', encoding="utf-8") as csv_file:
             try:
                 csv_writer = csv.writer(csv_file)
             except UnicodeEncodeError as e:
                 continue
-            # # csv_writer.writerow(['Sentiment', 'Opinion'])
 
             print(sentiment, opinion)
             csv_writer.writerow([sentiment, opinion])

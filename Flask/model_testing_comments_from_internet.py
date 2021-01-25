@@ -24,6 +24,8 @@ df_x = df['Opinion']
 df_y = df['Sentiment']
 
 vectorizer = CountVectorizer()
+# #TFIDF
+# vectorizer = TfidfVectorizer()
 x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size=0.25, random_state=10)
 x_train_countvectorizer = vectorizer.fit_transform(x_train) # Document Term Matrix
 # print(vectorizer.get_feature_names()[1000:1010])
@@ -50,29 +52,3 @@ print(accuracy) #0.911
 #
 # with open(r'C:\Users\User\GIT\model testing\Ocena-komentarzy-NLP\Flask\pickeld_vectorizer.pkl', 'wb') as f:
 #     pickle.dump(vectorizer , f)
-
-TFIDF
-vectorizer = TfidfVectorizer()
-# x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size=0.25,
-#                                                     random_state=10)
-# X = vectorizer.fit_transform(x_train)
-# mnb = MultinomialNB()
-#
-# mnb.fit(X, y_train)
-#
-# x_test_countvectorizer = vectorizer.transform(x_test)
-#
-# pred = mnb.predict(x_test_countvectorizer)
-#
-# rezult = np.array(y_test)
-# # print(rezult)
-#
-# count = 0
-# for i in range(len(pred)):
-#     if pred[i] == rezult[i]:
-#         count += 1
-#
-# print(count)
-# print(len(pred))
-# accuracy = count/len(pred)
-# print(accuracy) #0.925
